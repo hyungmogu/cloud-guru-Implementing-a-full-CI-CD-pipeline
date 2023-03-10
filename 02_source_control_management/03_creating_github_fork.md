@@ -6,4 +6,3 @@
 git clone git@github.com:linuxacademy/cicd-pipeline-train-schedule-git.git
 ```
 
-#
