@@ -59,4 +59,41 @@ export PATH=$PATH:/opt/gradle/gradle-4.7/bin
 
 ## Instruction - installing Gradle Wrapper
 
+### With Gradle Installed
+
+1. go to project root directory of choice
+
+```
+cd /project/root/directory/of/choice
+```
+
+2. start gradle wrapper
+
+```
+gradle wrapper
+```
+
+- If installed following instruction from gradle site, the command changed and is now `gradle init`
+
+```
+gradle init
+```
+
+3. add the following line to `.gitignore`
+
+**/project/root/directory/of/choice/.gitignore**
+```
+.gradle
+```
+
+4. Run gradle builds
+
+**/project/root/directory/of/choice/**
+```
+./gradlew build
+```
+
+### Without Gradle Installed
+
+
 #
