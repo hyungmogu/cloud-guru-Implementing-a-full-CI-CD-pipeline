@@ -40,4 +40,3 @@ sdk install gradle 8.0.2
 export PATH=$PATH:/opt/gradle/gradle-4.7/bin
 ```
 
-#
