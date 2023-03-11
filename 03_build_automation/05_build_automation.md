@@ -7,4 +7,3 @@
 - `./gradlew` runs gradle wrapper
 - `smoke test` is a large-scale of testing basic things like whether or not application runs
 
-#
