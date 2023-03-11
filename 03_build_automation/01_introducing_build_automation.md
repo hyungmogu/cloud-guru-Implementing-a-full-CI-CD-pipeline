@@ -6,4 +6,3 @@
 - `build automation` is an important part of Continuous Integration (CI)
 
 
-#
