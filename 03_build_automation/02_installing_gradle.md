@@ -5,6 +5,8 @@
 1. Make sure jdk version 8 or higher is installed
 - if not, the it can be installed from [here](https://gradle.org/install/)
 
+### Installer-based installation
+
 2. Install gradle
 - More instruction can be found [here](https://gradle.org/install/)
 
@@ -16,6 +18,38 @@ brew install gradle
 **Unix Distributions**
 ```
 sdk install gradle 8.0.2
+```
+
+### Manual Installation
+
+1. install java-jre and java-jdk [here](https://www.digitalocean.com/community/tutorials/how-to-install-java-with-apt-on-ubuntu-22-04)
+
+2. install unzip
+
+```
+sudo apt install unzip
+```
+
+3. download Gradle following [this](https://gradle.org/install/)
+
+```
+wget -O ~/gradle-8.0.2-bin.zip https://services.gradle.org/distributions/gradle-8.0.2-bin.zip
+sudo mkdir /opt/gradle
+sudo unzip -d /opt/gradle ~/gradle-8.0.2-bin.zip
+ls /opt/gradle/gradle-8.0.2
+```
+
+4. add PATH
+
+**Setting up /etc/profile.d/gradle.sh**
+```
+sudo vim /etc/profile.d/gradle.sh
+sudo chmod 755 /etc/profile.d/gradle.sh 
+```
+
+*/etc/profile.d/gradle.sh*
+```
+export PATH=$PATH:/opt/gradle/gradle-4.7/bin
 ```
 
 ## Instruction - Notes
@@ -46,7 +80,7 @@ sudo chmod 755 /etc/profile.d/gradle.sh
 export PATH=$PATH:/opt/gradle/gradle-4.7/bin
 ```
 
-## Gradle Wrapper
+## Gradle Wrapper / Gradle Init
 
 - `Gradle wrapper` is a script that invokes a declared version of Gradle, downloading it beforehand if necessary
 - `Gradle wrapper` allows gradle to install itself using just the files from your project's source control
