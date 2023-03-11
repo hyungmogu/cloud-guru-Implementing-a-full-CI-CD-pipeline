@@ -18,7 +18,7 @@ brew install gradle
 sdk install gradle 8.0.2
 ```
 
-## Note
+## Instruction - Notes
 
 - `/opt/` directory means "reserved for the installation of add-on application software packages"
 
@@ -48,3 +48,16 @@ export PATH=$PATH:/opt/gradle/gradle-4.7/bin
 
 ## Gradle Wrapper
 
+- `Gradle wrapper` is a script that invokes a declared version of Gradle, downloading it beforehand if necessary
+- `Gradle wrapper` allows gradle to install itself using just the files from your project's source control
+- `Gradle wrapper` is useful because:
+    1. It removes the need to have Gradle installed beforehand in order to run the build
+    2. Ensures the project is always built with a specific version of Gradle
+    3. Lets you build multiple projects with different Gradle version on one system
+    4. Anyone (or any automated process) can run the build quickly and easily - they only need Java
+
+
+## Instruction - installing Gradle Wrapper
+
+
+#
