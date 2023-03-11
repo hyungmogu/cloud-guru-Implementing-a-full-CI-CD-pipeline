@@ -28,10 +28,16 @@ sdk install gradle 8.0.2
 ```
 
 - `/etc/profile.d/<app_name>.sh` adds `<app_name>` to PATH permanently.
+- `/etc/proifle.d/<app_name>.sh` starts `<app_name>.sh` after load
 
 **Example**
 ```
 /etc/profile.d/gradle.sh
+```
+
+*/etc/profile.d/gradle.sh*
+```
+export PATH=$PATH:/opt/gradle/gradle-4.7/bin
 ```
 
 #
