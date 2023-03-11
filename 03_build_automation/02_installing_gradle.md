@@ -35,6 +35,12 @@ sdk install gradle 8.0.2
 /etc/profile.d/gradle.sh
 ```
 
+**Setting up /etc/profile.d/gradle.sh**
+```
+sudo vim /etc/profile.d/gradle.sh
+sudo chmod 755 /etc/profile.d/gradle.sh 
+```
+
 */etc/profile.d/gradle.sh*
 ```
 export PATH=$PATH:/opt/gradle/gradle-4.7/bin
