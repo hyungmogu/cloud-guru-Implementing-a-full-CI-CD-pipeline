@@ -3,7 +3,7 @@
 ## Instruction
 
 1. Make sure jdk version 8 or higher is installed
-- if not, the it can be installed from [here]()
+- if not, the it can be installed from [here](https://gradle.org/install/)
 
 2. Install gradle
 - More instruction can be found [here](https://gradle.org/install/)
@@ -93,6 +93,4 @@ gradle init
 ./gradlew build
 ```
 
-### Without Gradle Installed
-
-
+#
