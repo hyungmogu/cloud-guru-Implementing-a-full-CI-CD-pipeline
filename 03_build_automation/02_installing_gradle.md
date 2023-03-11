@@ -46,3 +46,6 @@ sudo chmod 755 /etc/profile.d/gradle.sh
 export PATH=$PATH:/opt/gradle/gradle-4.7/bin
 ```
 
+## Gradle Wrapper
+
+#
