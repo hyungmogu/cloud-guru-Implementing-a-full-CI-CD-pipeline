@@ -42,4 +42,3 @@ sudo systemctl status jenkins
 http://<YOUR_PUBLIC_IP>:8080
 ```
 
-#
