@@ -1,5 +1,6 @@
 # Setting Up Jenkin Projects
 
-## Webhooks
-- `webhooks` are event notifications made from one application to another via http
+## Jenkins Projects
+- `freestyle project` is a simple way to implement a CI build in jenkins
 
+#
