@@ -49,7 +49,7 @@ sudo chmod 755 /etc/profile.d/gradle.sh
 
 */etc/profile.d/gradle.sh*
 ```
-export PATH=$PATH:/opt/gradle/gradle-4.7/bin
+export PATH=$PATH:/opt/gradle/gradle-8.0.2/bin
 ```
 
 ## Instruction - Notes
