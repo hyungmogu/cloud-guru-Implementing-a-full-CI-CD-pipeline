@@ -58,4 +58,21 @@
 
 5. In the project configuration, under "Build Trigger", select "GitHub hook trigger for GITScm Polling"
 
+- a. Select project
+
+<img src="https://user-images.githubusercontent.com/6856382/224570216-e086e844-a2c4-4b0d-ab55-e2fad61ec94f.png">
+
+- b. select `configure`
+
+<img src="https://user-images.githubusercontent.com/6856382/224570269-f7d3d31a-9c58-4e28-9fe0-55467a317426.png">
+
+- c. under `Source Code Management`,
+    1. replace Repository URL with the one on your repository (if forked)
+    2. Select `GitHub hook trigger for GITScm Polling` under `Build Triggers`
+
+<img src="https://user-images.githubusercontent.com/6856382/224570408-6ba1cee9-6b39-488a-b3d9-3b47acae87dd.png">
+
+<img src="https://user-images.githubusercontent.com/6856382/224570612-d14d93dd-0bc5-480f-ace9-9c5e742c2275.png">
+
+
 #
