@@ -23,7 +23,34 @@
 
 <img src="https://user-images.githubusercontent.com/6856382/224565500-439a4499-fd3a-4d59-9bf7-9aed540a80ab.png">
 
+- e. Copy Key
+
 2. Add Github server in Jenkins for Github.com
+
+- a in jenkins, select `manage jenkins`
+
+<img src="https://user-images.githubusercontent.com/6856382/224568174-1c0d5a23-d22b-46fe-9db1-6a14acfc3d15.png">
+
+- b. Select `Configure System`
+
+<img src="https://user-images.githubusercontent.com/6856382/224568337-29850b15-0182-4998-aae2-2f35d7935942.png">
+
+- c. Select `Github Server` underneath `Github` Section
+
+<img src="https://user-images.githubusercontent.com/6856382/224568492-80774c9b-7aae-49fa-a3c7-91f5a0ef1490.png">
+
+- d. Add `Github` to `Name` and Select `Jenkins` under `Credentials`
+
+<img src="https://user-images.githubusercontent.com/6856382/224568609-cb1745b8-fbd1-436a-b726-c9fb91661fe4.png">
+
+- e. Perform following: 
+    1. Select `Secrete Text` under `Kind`
+    2. Enter Webhook api key gained under step 1 to `Secret`
+    3. Enter `github_key` to `ID`
+    4. Enter `GitHubKey` to `Description`
+
+<img src="https://user-images.githubusercontent.com/6856382/224569180-348b005b-37e6-44a4-9c66-a072eb797bca.png">
+
 3. Create a Jenkins credentials with the token and configure the Github Server configuration to use it
 4. Check "Manage Hooks" for the Github server configuration
 5. In the project configuration, under "Build Trigger", select "GitHub hook trigger for GITScm Polling"
