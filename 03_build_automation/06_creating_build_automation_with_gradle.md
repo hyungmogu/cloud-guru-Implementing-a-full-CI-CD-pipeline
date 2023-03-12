@@ -143,3 +143,4 @@ Could not determine java version from '11.0.18'.
     4. replace `distributionUrl` with the one above
     5. type `./gradlew init` again
 
+#
