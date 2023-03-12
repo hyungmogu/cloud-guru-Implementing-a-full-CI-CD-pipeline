@@ -53,5 +53,9 @@
 
 3. Create a Jenkins credentials with the token and configure the Github Server configuration to use it
 4. Check "Manage Hooks" for the Github server configuration
+
+<img src="https://user-images.githubusercontent.com/6856382/224569354-082c8173-3c71-46c8-9620-5ece74b3f0d0.png">
+
 5. In the project configuration, under "Build Trigger", select "GitHub hook trigger for GITScm Polling"
 
+#
