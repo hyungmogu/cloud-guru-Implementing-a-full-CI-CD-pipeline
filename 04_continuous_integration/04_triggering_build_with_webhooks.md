@@ -95,4 +95,23 @@ cat ~/.ssh/<NAME_OF_SSH_KEY>.pub
 
 <img src="https://user-images.githubusercontent.com/6856382/224575297-8a17ddb6-d4ef-41ee-b151-21401da98a0f.png">
 
-#
+4. Select `Add Deploy Key` under `Deploy Keys`
+
+<img src="https://user-images.githubusercontent.com/6856382/224575764-97859724-d345-472d-81b2-d1fc6148ecfa.png">
+
+5. Add SSH Key for deployment in Jenkins
+- a. Go back to step 5.c in previous step, and select `Add` under `Git`
+<img src="https://user-images.githubusercontent.com/6856382/224576315-21c3ae81-6cd2-4d8a-a549-193f648b25a1.png">
+
+6. Select `SSH Username with Private Key`
+
+<img src="https://user-images.githubusercontent.com/6856382/224576359-648c6570-279d-4252-a914-6c9c1ca8e90b.png">
+
+7. Add the name of repository under `username` and add private ssh key
+
+<img src="https://user-images.githubusercontent.com/6856382/224576484-7075e6f5-8076-4a7c-9f04-98876fb64e06.png">
+
+
+## Note
+
+8. For Jenkins to work properly, must be hosted in third party server with public address. LOCALHOST doesn't work!
