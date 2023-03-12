@@ -25,4 +25,3 @@
 
 - `Jenkins` is a CI solution
 
-#
