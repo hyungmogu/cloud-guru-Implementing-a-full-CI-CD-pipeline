@@ -121,3 +121,25 @@ npm_test.dependsOn npmInstall
 ./gradlew build
 ```
 
+## Notes
+
+1. When faced with the following error
+
+```
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Could not determine java version from '11.0.18'.
+```
+- do:
+    1. `gradle wrapper`
+    2. go to [this](https://docs.gradle.org/current/userguide/gradle_wrapper.html) site and copy gradle wrapper distribution url
+
+    ```
+    distributionUrl=https\://services.gradle.org/distributions/gradle-8.0.2-bin.zip
+    ```
+
+    3. replace the following line in file `/your/project/root/folder/gradle/gradle-wrapper.properties`
+    4. replace `distributionUrl` with the one above
+    5. type `./gradlew init` again
+
