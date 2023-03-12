@@ -75,3 +75,22 @@
 <img src="https://user-images.githubusercontent.com/6856382/224570612-d14d93dd-0bc5-480f-ace9-9c5e742c2275.png">
 
 
+## Instruction - Adding 
+- More instruction can be found [here](https://levelup.gitconnected.com/setup-ssh-between-jenkins-and-github-e4d7d226b271)
+
+1. Generate ssh-keys
+- name it so that it's easily identified and be revoked in worst case scenario
+
+```
+ssh-keygen -t ed25519 -C "<YOUR_EMAIL>@example.com"
+```
+
+2. Copy public key of generated ssh key
+
+```
+cat ~/.ssh/<NAME_OF_SSH_KEY>.pub
+```
+
+3. Go to target GitHub Repository --> setting --> Add deploy keys
+
+<img src="https://user-images.githubusercontent.com/6856382/224575297-8a17ddb6-d4ef-41ee-b151-21401da98a0f.png">
