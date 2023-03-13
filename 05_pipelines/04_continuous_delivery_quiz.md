@@ -1,3 +1,2 @@
 # Continuous Delivery Quiz
 
-#
