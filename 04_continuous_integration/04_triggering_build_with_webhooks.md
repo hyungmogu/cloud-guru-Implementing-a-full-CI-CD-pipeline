@@ -119,4 +119,3 @@ cat ~/.ssh/<NAME_OF_SSH_KEY>.pub
 
 8. For Jenkins to work properly, must be hosted in third party server with public address. LOCALHOST doesn't work!
 
-#
