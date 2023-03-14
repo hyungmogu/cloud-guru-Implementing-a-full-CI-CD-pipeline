@@ -50,5 +50,16 @@ pipeline {
 
     <img src="https://user-images.githubusercontent.com/6856382/224906036-434ecdd3-6daf-4d13-881a-32889e63f73b.png">
 
+    8. add credentials under `jenkin`
 
-#
+    <img src="https://user-images.githubusercontent.com/6856382/224908427-f5abfa40-bd09-438a-b090-4ad5a9afe03f.png">
+
+    9. under `Username with password` enter the following info:
+        - Username: Enter your GitHub username.
+        - Password: Paste in the API key you copied before.
+        - ID: github_key (or any unique id to distinguish this webhook from others)
+        - Description: GitHub key
+
+    10. Place all the information we've gathered
+
+    <img src="https://user-images.githubusercontent.com/6856382/224909197-24940552-eea4-4995-948f-abdbe3e55993.png">

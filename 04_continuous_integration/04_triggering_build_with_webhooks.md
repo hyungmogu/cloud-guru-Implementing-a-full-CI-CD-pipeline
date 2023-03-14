@@ -74,6 +74,9 @@
 
 <img src="https://user-images.githubusercontent.com/6856382/224570612-d14d93dd-0bc5-480f-ace9-9c5e742c2275.png">
 
+- d. Define Build step and Post-build Actions as below
+
+<img src="https://user-images.githubusercontent.com/6856382/224583757-57f2ec0c-8d26-4c0a-8b2a-92737ed05744.png">
 
 ## Instruction - Adding SSH Key to Repo 
 - More instruction can be found [here](https://levelup.gitconnected.com/setup-ssh-between-jenkins-and-github-e4d7d226b271)
@@ -115,5 +118,3 @@ cat ~/.ssh/<NAME_OF_SSH_KEY>.pub
 ## Note
 
 8. For Jenkins to work properly, must be hosted in third party server with public address. LOCALHOST doesn't work!
-
-#
