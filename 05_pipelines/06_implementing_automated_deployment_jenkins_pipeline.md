@@ -68,3 +68,19 @@
 
 <img src="https://user-images.githubusercontent.com/6856382/225217986-0f04031a-8ca8-43a5-ab9c-4d58a1df2112.png">
 
+3. Enter the item name `train schedule`
+
+4. Select `Multibranch Pipeline`
+
+<img src="https://user-images.githubusercontent.com/6856382/225220932-1e8450f7-cc10-46ad-b48a-aff08bb6f88a.png">
+
+5. Navigate to [this](https://github.com/linuxacademy/cicd-pipeline-train-schedule-cd) git repo and fork the repo
+
+6. (on Github) Click `Settings` > `Developer Settings` > `Personal Access Tokens` > `Generate New Token` to create webhook for Jenkins
+    - Enter the following values
+        1. Token Description: "Webhook for CloudGuru Jenkins"
+        2. Select `admin:repo_hook`
+
+7. Copy generated API token
+
+#
