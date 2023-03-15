@@ -85,4 +85,3 @@
 
 8. On Jenkin's `Multibranch Pipeline` page, select `Add Source` > `Git` under `Branch Sources` tab
 
-#
