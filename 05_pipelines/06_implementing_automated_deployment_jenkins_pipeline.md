@@ -83,6 +83,6 @@
 
 7. Copy generated API token
 
-8. On Jenkin's `Multibranch Pipeline` page, select `Branch Sources` tab
+8. On Jenkin's `Multibranch Pipeline` page, select `Add Source` > `Git` under `Branch Sources` tab
 
 #
