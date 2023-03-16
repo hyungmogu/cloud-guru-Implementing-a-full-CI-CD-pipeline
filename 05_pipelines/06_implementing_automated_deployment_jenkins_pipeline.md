@@ -40,6 +40,7 @@
 <img src="https://user-images.githubusercontent.com/6856382/225214091-36ed2de4-7332-4cda-8c19-1dcde60dab03.png">
 
 ### 2) Setup Jenkins Credentials
+- This is to allow Jenkins to login to servers and perform deployment
 
 1. From the sidebar, click `credentials`
     - on new version of Jenkins, click `Manage Jenkins` > `Manage Credentials`
@@ -61,6 +62,7 @@
 <img src="https://user-images.githubusercontent.com/6856382/225216817-03178438-ff45-4e3c-b9dd-0604ed23d684.png">
 
 ### 3) Setup Jenkins Project
+- This part of tutorial requires github repo, which can be downloaded [here](https://github.com/linuxacademy/cicd-pipeline-train-schedule-cd)
 
 1. Go back to Jenkins Home page
 
@@ -76,12 +78,17 @@
 
 5. Navigate to [this](https://github.com/linuxacademy/cicd-pipeline-train-schedule-cd) git repo and fork the repo
 
-6. (on Github) Click `Settings` > `Developer Settings` > `Personal Access Tokens` > `Generate New Token` to create webhook for Jenkins
+#### Generating Webhook
+- The purpose of webhook is to constantly observe github account and if changed, perform CI/CD
+
+1. (on Github) Click `Settings` > `Developer Settings` > `Personal Access Tokens` > `Generate New Token` to create webhook for Jenkins
     - Enter the following values
         1. Token Description: "Webhook for CloudGuru Jenkins"
         2. Select `admin:repo_hook`
 
-7. Copy generated API token
+2. Copy generated API token
+
+#### Completing Setup
 
 8. On Jenkin's `Multibranch Pipeline` page, select `Add Source` > `Github` under `Branch Sources` tab
 
@@ -94,3 +101,14 @@
 
 <img src="https://user-images.githubusercontent.com/6856382/225482282-e43be051-5d89-4ff6-ab5d-6df99c7f5240.png"/>
 
+10. Set the username, password, id, and description as follows
+    - username: `<YOUR_GITHUB_USERNAME>`
+    - password: `<GENERATED_API_TOKEN_FROM_EARLIER>`
+    - ID: `github_key`
+    - Description: `Github Key`
+
+<img src="https://user-images.githubusercontent.com/6856382/225484649-5217d2d9-0ec6-433b-8824-ac7388da8bcf.png"/>
+
+11. 
+
+#
