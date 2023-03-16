@@ -109,6 +109,127 @@
 
 <img src="https://user-images.githubusercontent.com/6856382/225484649-5217d2d9-0ec6-433b-8824-ac7388da8bcf.png"/>
 
-11. 
+11. Type in `<YOUR_GITHUB_USERNAME>` to `Owner` and select repository to run 
 
-#
+<img src="https://user-images.githubusercontent.com/6856382/225485807-554029f6-6558-4c8e-9072-4d6e1305833e.png"/>
+
+12. Click `Save`
+
+## Creating Deploy code in the Jenkinsfile and Running the Build
+
+1. Open `Jenkinsfile` in the forked repo
+
+2. Edit the `Jenkinsfile` and replace it with the following [contents](https://github.com/linuxacademy/cicd-pipeline-train-schedule-cd/blob/example-solution/Jenkinsfile):
+
+```
+pipeline {
+    agent any
+    stages {
+        stage('Build') {
+            steps {
+                echo 'Running build automation'
+                sh './gradlew build --no-daemon'
+                archiveArtifacts artifacts: 'dist/trainSchedule.zip'
+            }
+        }
+        stage('DeployToStaging') {
+            when {
+                branch 'master'
+            }
+            steps {
+                withCredentials([usernamePassword(credentialsId: 'webserver_login', usernameVariable: 'USERNAME', passwordVariable: 'USERPASS')]) {
+                    sshPublisher(
+                        failOnError: true,
+                        continueOnError: false,
+                        publishers: [
+                            sshPublisherDesc(
+                                configName: 'staging',
+                                sshCredentials: [
+                                    username: "$USERNAME",
+                                    encryptedPassphrase: "$USERPASS"
+                                ], 
+                                transfers: [
+                                    sshTransfer(
+                                        sourceFiles: 'dist/trainSchedule.zip',
+                                        removePrefix: 'dist/',
+                                        remoteDirectory: '/tmp',
+                                        execCommand: 'sudo /usr/bin/systemctl stop train-schedule && rm -rf /opt/train-schedule/* && unzip /tmp/trainSchedule.zip -d /opt/train-schedule && sudo /usr/bin/systemctl start train-schedule'
+                                    )
+                                ]
+                            )
+                        ]
+                    )
+                }
+            }
+        }
+        stage('DeployToProduction') {
+            when {
+                branch 'master'
+            }
+            steps {
+                input 'Does the staging environment look OK?'
+                milestone(1)
+                withCredentials([usernamePassword(credentialsId: 'webserver_login', usernameVariable: 'USERNAME', passwordVariable: 'USERPASS')]) {
+                    sshPublisher(
+                        failOnError: true,
+                        continueOnError: false,
+                        publishers: [
+                            sshPublisherDesc(
+                                configName: 'production',
+                                sshCredentials: [
+                                    username: "$USERNAME",
+                                    encryptedPassphrase: "$USERPASS"
+                                ], 
+                                transfers: [
+                                    sshTransfer(
+                                        sourceFiles: 'dist/trainSchedule.zip',
+                                        removePrefix: 'dist/',
+                                        remoteDirectory: '/tmp',
+                                        execCommand: 'sudo /usr/bin/systemctl stop train-schedule && rm -rf /opt/train-schedule/* && unzip /tmp/trainSchedule.zip -d /opt/train-schedule && sudo /usr/bin/systemctl start train-schedule'
+                                    )
+                                ]
+                            )
+                        ]
+                    )
+                }
+            }
+        }
+    }
+}
+```
+
+3. Returning to Jenkins UI, click `Build Now` inside the multipipeline branch that is created.
+
+4. Test the deployment by putting public url in browser
+
+5. if `<PUBLIC_URL_STARING_SERVER>:3000` returns response, it should be successful
+
+## Deploying the App to the Production Server
+
+1. Add Build stage `DeployToProduction` to Jenkinsfile
+
+2. On Jenkins UI page where the multipipline project for this is created, select `build now`
+
+3. Test connection once deployment is successful.
+
+## Note
+
+1. Installing firewall on ubuntu
+
+```
+sudo apt-get update
+sudo apt-get install -y ufw
+```
+
+**Denying all inbound and permit all outbound**
+```
+sudo ufw default deny incoming
+sudo ufw default allow outgoing
+```
+
+**Adding UFW to permit only HTTP, SSH, and 3000 traffic**
+```
+sudo ufw allow 80
+sudo ufw allow 3000
+sudo ufw allow 5900:5901/tcp
+```
