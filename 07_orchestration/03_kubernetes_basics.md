@@ -49,3 +49,5 @@ sudo kubectl apply -f <the_path_of_yml_file>.yml
     - `Kubernetes` creates or destroys pods to met the desired new number if the number of replicas in deployment changes
 3. "I want to deploy a new Docker image with code changes"
     - `Kubernetes` orchastrates the rollout of the new version with zero downtime
+
+#
