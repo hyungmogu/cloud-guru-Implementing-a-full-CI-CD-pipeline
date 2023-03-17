@@ -37,10 +37,17 @@ docker run -d <docker_username>/<image_name>
     1. Private repository (AWS)
     2. Official cloud registry (Docker Hub)
 
-- To upload it to official docker registry,
+- To login to official docker registry,
 
 **Syntax**
 ```
 docker login --username=<hub_username> --email=<hub_email>
 ```
 
+- To push image to offical docker registry,
+
+**Syntax**
+
+```
+docker push <docker_hub_username>/<docker_image_name>
+```
