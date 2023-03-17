@@ -119,4 +119,3 @@ NAME                           STATUS   ROLES    AGE   VERSION
 92c60ee3642c.mylabserver.com   Ready    <none>   66s   v1.18.5
 ```
 
-#
