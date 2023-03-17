@@ -68,4 +68,55 @@ apiServer:
 sudo kubeadm init --config=kube-config.yml
 ```
 
+3. Run the following commands on master node to allow the use of `kubectl`
+- after running the below command, `kubectl` can be run
+
+```
+mkdir -p $HOME/.kube
+sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+sudo chown $(id -u):$(id -g) $HOME/.kube/config
+```
+
+**confirming successful registration**
+```
+kubectl get nodes
+```
+
+4. Setup networking using `flannel` on master node
+- as of March 16th, 2023, the below link works for kubernetes 1.17+
+- if successful, the status of nodes under `kubectl get nodes` would change to `Ready`
+```
+kubectl apply -f https://github.com/flannel-io/flannel/releases/latest/download/kube-flannel.yml
+```
+
+**confirming successful installation**
+```
+kubectl get nodes
+```
+
+```
+NAME                           STATUS   ROLES    AGE     VERSION
+92c60ee3641c.mylabserver.com   Ready    master   7m24s   v1.18.5
+```
+
+5. Have worker nodes join kubernetes network using the command given at the end of `kubeadm init`
+- if successful, there should be more than 1 node showing up
+
+**Worker node**
+```
+sudo kubeadm join 172.31.108.203:6443 --token ymqx98.9nhwumvmhnb8oii1 \
+    --discovery-token-ca-cert-hash sha256:<sha_code>
+```
+
+**confirming successful joining of worker node (master node)**
+```
+kubectl get nodes
+```
+
+```
+NAME                           STATUS   ROLES    AGE   VERSION
+92c60ee3641c.mylabserver.com   Ready    master   10m   v1.18.5
+92c60ee3642c.mylabserver.com   Ready    <none>   66s   v1.18.5
+```
+
 #
