@@ -25,4 +25,3 @@ CMD [ "npm", "start" ]
 
 ### Building a Docker Image Using the Dockerfile and Run it
 
-#
