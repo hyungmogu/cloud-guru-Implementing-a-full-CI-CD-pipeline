@@ -68,4 +68,3 @@ apiServer:
 sudo kubeadm init --config=kube-config.yml
 ```
 
-#
