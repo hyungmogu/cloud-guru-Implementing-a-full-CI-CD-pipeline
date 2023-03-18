@@ -50,4 +50,3 @@ sudo kubectl apply -f <the_path_of_yml_file>.yml
 3. "I want to deploy a new Docker image with code changes"
     - `Kubernetes` orchastrates the rollout of the new version with zero downtime
 
-#
