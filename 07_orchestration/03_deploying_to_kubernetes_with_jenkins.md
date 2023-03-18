@@ -11,3 +11,5 @@
 2. Rest of the steps are omitted due to it's plugin `Kubernetes Continuous Deploy Plugin` is outdated
 
     - maybe I can use ansible / Helm charts instead?
+
+#
