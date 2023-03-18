@@ -77,4 +77,3 @@ kubectl get pods -w
 - Train Schedule App uses nodejs app
 - Train Schedule App uses nodejs specific Prometheus client library called prom-client to instrument the app
 
-#
