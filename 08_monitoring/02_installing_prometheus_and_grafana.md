@@ -45,3 +45,5 @@ git clone
 4. Create values.yml file for any special settings we want to use 
 5. Install Prometheus and Grafana with `helm install`
 6. Setup a Prometheus datasource in Grafana and verify that it can connect
+
+#
