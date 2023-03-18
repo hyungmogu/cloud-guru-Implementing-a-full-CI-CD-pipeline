@@ -32,6 +32,8 @@ sudo systemctl status jenkins
 sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 ```
 
-5. Click Install suggested plugins
+- c. 
 
-6. Start using jenkins
+4. Click Install suggested plugins
+
+5. Start using jenkins
