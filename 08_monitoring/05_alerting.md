@@ -22,3 +22,16 @@
 3. Enter condition at which the warning should be fired
 
 <img src="https://user-images.githubusercontent.com/6856382/226144447-6c1fa41f-29fe-4b10-adfc-28d234bd853d.png">
+
+
+4. Save Changes
+
+<img src="https://user-images.githubusercontent.com/6856382/226144488-dc150f1c-50fd-43e0-996d-efdaf4595b41.png">
+
+## Instructions - Setting up Alert Channel
+
+1. Click `Alerting` on the side bar
+2. click `Notification Channels`
+3. Click `Add Channel`
+
+<img src="https://user-images.githubusercontent.com/6856382/226144555-be55c358-b18b-4f34-826f-9bbe2a2d5219.png">
