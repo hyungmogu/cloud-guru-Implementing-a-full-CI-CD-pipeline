@@ -42,7 +42,7 @@ SHOULD RETURN NOTHING
 git clone https://github.com/kubernetes/charts
 ```
 
-4. Create prometheus-values.yml file for any special settings we want to use (DEPRECATED)
+4. Create prometheus-values.yml file for any special settings we want to use (HELM DEPRECATED DON'T USE)
 
 **Kubernetes Control Plane**
 ```
@@ -50,11 +50,52 @@ vi prometheus-values.yml
 ```
 
 ```
-
+alertmanager:
+  persistentVolume:
+    enabled: false
+server:
+  persistentVolume:
+    enabled: false
 ```
 
 
-5. Install Prometheus and Grafana with `helm install`
-6. Setup a Prometheus datasource in Grafana and verify that it can connect
+5. Install Prometheus with `helm install` (DEPRECATED)
+
+```
+helm install -f prometheus-values.yml charts/stable/prometheus --name prometheus --namespace prometheus
+```
+
+**Checking for Successful Installation**
+```
+kubectl get pods -n prometheus
+```
+
+6. Install grafana
+
+```
+vi grafana-values.yml
+```
+
+```
+adminPassword: password
+```
+
+7. Install Grafana Using Helm (DEPRECATED)
+
+```
+helm install -f grafana-values.yml charts/stable/grafana/ --name grafana --namespace grafana
+```
+
+**Checking for Successful Installation**
+```
+kubectl get pods -n grafana
+```
+
+8. Expose node port service that will allow users to access Grafana
+
+```
+vi grafana-ext
+```
+
 
 #
