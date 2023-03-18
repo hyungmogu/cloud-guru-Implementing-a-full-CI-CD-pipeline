@@ -9,9 +9,24 @@
 ## Helm Installation
 
 1. Install and initialize Helm
+- `DESIRED_VERSION` should be newer now
+
+**Kubernetes Control Plane**
+```
+curl https://raw.githubusercontent.com/helm/helm/main/scripts/get > /tmp/get_helm.sh
+chmod 700 /tmp/get_helm.sh
+DESIRED_VERSION=v2.8.2 
+helm init --wait
+```
+
+2. Set permission so Helm has the permission it needs to run properly
+
+```
+kubectl --namespace=kube-system create clusterrolebinding add-on-cluster-admin --clusterrole=cluster-admin --serviceaccount=kube-system:default
+```
+
 2. Clone Kubernetes charts repo from Github
 3. Create values.yml file for any special settings we want to use 
 4. Install Prometheus and Grafana with `helm install`
 5. Setup a Prometheus datasource in Grafana and verify that it can connect
 
-#
