@@ -25,8 +25,9 @@ helm init --wait
 kubectl --namespace=kube-system create clusterrolebinding add-on-cluster-admin --clusterrole=cluster-admin --serviceaccount=kube-system:default
 ```
 
-2. Clone Kubernetes charts repo from Github
-3. Create values.yml file for any special settings we want to use 
-4. Install Prometheus and Grafana with `helm install`
-5. Setup a Prometheus datasource in Grafana and verify that it can connect
+3. Clone Kubernetes charts repo from Github
+4. Create values.yml file for any special settings we want to use 
+5. Install Prometheus and Grafana with `helm install`
+6. Setup a Prometheus datasource in Grafana and verify that it can connect
 
+#
