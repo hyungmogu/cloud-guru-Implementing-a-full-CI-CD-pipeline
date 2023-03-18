@@ -30,3 +30,4 @@ kubectl --namespace=kube-system create clusterrolebinding add-on-cluster-admin -
 4. Install Prometheus and Grafana with `helm install`
 5. Setup a Prometheus datasource in Grafana and verify that it can connect
 
+#
