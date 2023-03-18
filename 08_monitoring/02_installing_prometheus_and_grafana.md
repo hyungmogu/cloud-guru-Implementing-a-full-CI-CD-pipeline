@@ -39,10 +39,22 @@ SHOULD RETURN NOTHING
 
 **Kubernetes Control Plane**
 ```
-git clone 
+git clone https://github.com/kubernetes/charts
 ```
 
-4. Create values.yml file for any special settings we want to use 
+4. Create prometheus-values.yml file for any special settings we want to use (DEPRECATED)
+
+**Kubernetes Control Plane**
+```
+vi prometheus-values.yml
+```
+
+```
+
+```
+
+
 5. Install Prometheus and Grafana with `helm install`
 6. Setup a Prometheus datasource in Grafana and verify that it can connect
 
+#
