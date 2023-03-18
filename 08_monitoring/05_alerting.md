@@ -36,4 +36,12 @@
 
 <img src="https://user-images.githubusercontent.com/6856382/226144555-be55c358-b18b-4f34-826f-9bbe2a2d5219.png">
 
+4. Configure notification
+
+<img src="https://user-images.githubusercontent.com/6856382/226145713-148f9439-1279-464f-ad43-0b08228da0de.png">
+
+5. Complete setting up alerts in Grafana UI
+
+<img src="https://user-images.githubusercontent.com/6856382/226145764-10f32c95-506c-45ab-89f4-19f627fdf5d6.png">
+
 #
