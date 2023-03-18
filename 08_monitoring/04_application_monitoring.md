@@ -60,8 +60,21 @@ cd <go_to_project_root_folder>
 kubectl apply -f train-schedule-kube.yml
 ```
 
+3. Verify that changes are applied successfully
+
+**Kubernetes Control Plane**
+```
+kubectl get services -n <Train-Schedule-Cluster-Name>
+kubectl get pods -w
+```
+
+3. If it's succesful, at `/metrics` endpoint, it will return the following data:
+
+<img src="https://user-images.githubusercontent.com/6856382/226140219-45cff313-298d-49ff-9d5c-7adbdfaf2d3d.png">
+
 ## Example
 
 - Train Schedule App uses nodejs app
 - Train Schedule App uses nodejs specific Prometheus client library called prom-client to instrument the app
 
+#
