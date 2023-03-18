@@ -57,4 +57,3 @@ vi prometheus-values.yml
 5. Install Prometheus and Grafana with `helm install`
 6. Setup a Prometheus datasource in Grafana and verify that it can connect
 
-#
