@@ -35,7 +35,7 @@ helm ls
 SHOULD RETURN NOTHING
 ```
 
-3. Clone Kubernetes charts repo from Github
+3. Clone Kubernetes charts repo from Github (THIS STEP AND BELOW ARE DEPRECATED DUE TO CNKF NOT HAVING ENOUGH RESOURCES TO FUND FOR SINGLE REPOSITORY)
 
 **Kubernetes Control Plane**
 ```
@@ -46,3 +46,4 @@ git clone
 5. Install Prometheus and Grafana with `helm install`
 6. Setup a Prometheus datasource in Grafana and verify that it can connect
 
+#
