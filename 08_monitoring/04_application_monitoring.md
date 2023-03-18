@@ -5,6 +5,10 @@
 - `Application Monitoring` in prometheus is achieved by sending data through `/metrics` endpoint, which prometheus automatically detects
 - `Application Monitorning` is done in Kubernetes by adding a service annotation, which makes Prometheus to scrape data from `/metrics` endpoint of all services represented by the service: `prometheus.io/scrape:'true'`
 
+## Instruction - Applying Application Monitoring
+
+1. Create Kubernetes Service that allows Prometheus to scrape data from `/metrics` endpoint
+
 **Example (~/prometheus-values.yml)**
 ```
 kind: Service
@@ -48,8 +52,17 @@ spec:
 
 ```
 
+2. Apply service.yml file to kubernetes
+
+**Example (kubernetes control plane)**
+```
+cd <go_to_project_root_folder>
+kubectl apply -f train-schedule-kube.yml
+```
+
 ## Example
 
 - Train Schedule App uses nodejs app
 - Train Schedule App uses nodejs specific Prometheus client library called prom-client to instrument the app
 
+#
