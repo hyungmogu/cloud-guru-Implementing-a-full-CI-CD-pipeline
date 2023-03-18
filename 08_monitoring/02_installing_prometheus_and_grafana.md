@@ -1,5 +1,7 @@
 # Installing Prometheus and Grafana
 
+- NOTE: HELM IS DEPRECATED AND THIS INSTRUCTIONS IS NOW INVALID
+
 ## Helm
 - `Helm` is a tool for installing software using Kubernetes charts
 - `Charts` makes it easy to install software on kubernetes cluster in a standardized configuration
@@ -94,7 +96,40 @@ kubectl get pods -n grafana
 8. Expose node port service that will allow users to access Grafana
 
 ```
-vi grafana-ext
+vi grafana-ext.yml
 ```
 
+**grafana-ext.yml**
+```
+kind: Service
+apiVersion: v1
+metadata:
+  namespace: grafana
+  name: grafana-ext
+spec:
+  type: NodePort
+  selector:
+    app: grafana
+  ports:
+  - protocol: TCP
+    port: 3000
+    nodePort:8080
+```
 
+9. Apply services .yml file to kubernetes
+
+```
+kubectl apply -f grafana-ext.yml
+```
+
+10. Check if the changes have been made successfully
+
+```
+kubecetl get services -n grafana
+```
+
+11. Check in browser if it is running
+
+```
+<PUBLIC_URL>:8080
+```
