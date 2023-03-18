@@ -12,7 +12,7 @@ apiVersion: v1
 metadata:
   name: train-schedule-service
   annotations:
-    prometheus.io/scrape: 'true' 
+    prometheus.io/scrape: 'true' # <-- THIS GUY HERE
 spec:
   type: NodePort
   selector:
@@ -53,4 +53,3 @@ spec:
 - Train Schedule App uses nodejs app
 - Train Schedule App uses nodejs specific Prometheus client library called prom-client to instrument the app
 
-#
