@@ -13,13 +13,37 @@
 
     **Kubernetes Control Plane**
     ```
-    git clone git@github.com:kubernetes-sigs/metrics-server.git
-    cd metrics-server
-    kubernetes create -f 
+    kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml
+    ```
+
+    **Verifying installation is complete**
+    ```
+    kubectl get pods -n kube-system
+    ```
+
+    ```
+    NAME                                                   READY   STATUS    RESTARTS   AGE
+    coredns-66bff467f8-bcg7z                               1/1     Running   1         
+    2d15h
+    coredns-66bff467f8-fpgj8                               1/1     Running   1         
+    2d15h
+    etcd-92c60ee3641c.mylabserver.com                      1/1     Running   1         
+    2d15h
+    kube-apiserver-92c60ee3641c.mylabserver.com            1/1     Running   1         
+    2d15h
+    kube-controller-manager-92c60ee3641c.mylabserver.com   1/1     Running   1         
+    2d15h
+    kube-proxy-9fdtw                                       1/1     Running   1         
+    2d15h
+    kube-proxy-pv955                                       1/1     Running   1         
+    2d15h
+    kube-scheduler-92c60ee3641c.mylabserver.com            1/1     Running   1         
+    2d15h
+    metrics-server-5c67c69c6c-c6n6l                        0/1     Running   0         
+    58s #<- THIS GUY HERE
     ```
 
 2. Set resource request for the pods that will be autoscaled 
 
 3. Create an HPA
 
-#
