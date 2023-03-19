@@ -181,4 +181,4 @@ kubectl get hpa
 NAME             REFERENCE                              TARGETS         MINPODS   MAXPODS   REPLICAS   AGE
 train-schedule   Deployment/train-schedule-deployment   <unknown>/50%   1         4         2          41s
 ```
-
+#
