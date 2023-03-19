@@ -1,3 +1,2 @@
 # Kubernetes and Self-healing
 
-#
