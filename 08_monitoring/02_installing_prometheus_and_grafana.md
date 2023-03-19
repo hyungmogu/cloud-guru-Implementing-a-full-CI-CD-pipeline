@@ -42,6 +42,8 @@ SHOULD RETURN NOTHING
 **Kubernetes Control Plane**
 ```
 git clone https://github.com/kubernetes/charts
+cd charts
+git checkout efdcffe0b6973111ec6e5e83136ea74cdbe6527d
 ```
 
 4. Create prometheus-values.yml file for any special settings we want to use (HELM DEPRECATED DON'T USE)
