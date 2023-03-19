@@ -182,4 +182,3 @@ NAME             REFERENCE                              TARGETS         MINPODS 
 train-schedule   Deployment/train-schedule-deployment   <unknown>/50%   1         4         2          41s
 ```
 
-#
