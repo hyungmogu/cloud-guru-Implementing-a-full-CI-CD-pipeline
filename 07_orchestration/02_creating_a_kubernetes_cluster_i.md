@@ -85,6 +85,8 @@ kubectl get nodes
 4. Setup networking using `flannel` on master node
 - as of March 16th, 2023, the below link works for kubernetes 1.17+
 - if successful, the status of nodes under `kubectl get nodes` would change to `Ready`
+
+**Kubernetes Master**
 ```
 kubectl apply -f https://github.com/flannel-io/flannel/releases/latest/download/kube-flannel.yml
 ```
