@@ -22,4 +22,3 @@
 
 3. Create an HPA
 
-#
