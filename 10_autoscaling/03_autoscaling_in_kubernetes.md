@@ -146,4 +146,3 @@ apiVersion: autoscaling/v2beta1
 
 ```
 
-#
