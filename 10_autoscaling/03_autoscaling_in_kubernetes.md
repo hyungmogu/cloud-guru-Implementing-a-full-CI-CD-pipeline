@@ -1,3 +1,2 @@
 # Autoscaling in Kubernetes
 
-#
