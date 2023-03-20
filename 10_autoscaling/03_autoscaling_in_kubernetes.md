@@ -127,11 +127,11 @@ spec:
 ---
 
 apiVersion: autoscaling/v2beta1
-  kind: HorizontalPodAutoscaler
-  metadata:
+kind: HorizontalPodAutoscaler
+metadata:
   name: train-schedule
   namespace: default
-  spec:
+spec:
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment
@@ -140,9 +140,59 @@ apiVersion: autoscaling/v2beta1
   maxReplicas: 4
   metrics:
   - type: Resource
-      resource:
+    resource:
       name: cpu
       targetAverageUtilization: 50
 
 ```
 
+3. Make sure that pods are starting
+
+**kubernetes control plane**
+
+```
+kubectl get pods -w
+```
+
+4. Verify that the autoscaler is working
+
+**kubernetes control plane**
+```
+kubectl get hpa
+```
+
+## Testing the system
+
+1. Do a bunch of load testing
+
+```
+kubectl run -i --tty load-generator --image=busybox /bin/sh
+while true; do wget -q -O- http://NODE_PUBLIC_IP:8080/generate-cpu-load; done
+```
+
+2. Check if additional pods are created to mitigate rising demand
+
+**Local Terminal**
+```
+while true; do wget -q -O- http://NODE_PUBLIC_IP:8080/generate-cpu-load; done
+```
+
+**Kubernetes control pane**
+
+```
+kubectl get hpa -w
+```
+
+```
+NAME             REFERENCE                              TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+train-schedule   Deployment/train-schedule-deployment   6%/50%    1         4         1          5m
+train-schedule   Deployment/train-schedule-deployment   1%/50%    1         4         1         5m
+train-schedule   Deployment/train-schedule-deployment   1%/50%    1         4         1         6m
+train-schedule   Deployment/train-schedule-deployment   1%/50%    1         4         1         8m
+train-schedule   Deployment/train-schedule-deployment   87%/50%   1         4         1         9m
+train-schedule   Deployment/train-schedule-deployment   123%/50%   1         4         1         10m
+train-schedule   Deployment/train-schedule-deployment   123%/50%   1         4         1         10m
+train-schedule   Deployment/train-schedule-deployment   123%/50%   1         4         2         11m
+```
+
+#
