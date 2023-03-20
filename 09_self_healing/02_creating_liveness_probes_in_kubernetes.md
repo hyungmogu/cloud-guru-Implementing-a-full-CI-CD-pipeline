@@ -73,4 +73,3 @@ kubectl apply -f train-schedule-kube.yml
 kubectl get pods -w
 ```
 
-#
