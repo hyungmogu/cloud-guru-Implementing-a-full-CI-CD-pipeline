@@ -17,4 +17,3 @@
 - `Canary Testing` applys new code to all instances once conditions are met in a real-world environment
 - `Canary Testing` can be done automatically using Kubernetes Cluster
 
-#
