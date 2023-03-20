@@ -87,3 +87,56 @@ spec:
       targetAverageUtilization: 50
 ```
 
+4. Setting up liveness probe [see lesson 9.2 for more]
+- liveness probe checks for unhealthy condition in containers without the main process exiting.
+- liveness probe restarts a container if the probe determines that a container is unhealthy
+
+
+**`<YOUR_PROJECT_REPO>/<WHERE_YOUR_DEPLOY_CODE_IS_LOCATED>.yml`**
+```
+kind: Service
+apiVersion: v1
+metadata:
+  name: train-schedule-service
+spec:
+  type: NodePort
+  selector:
+    app: train-schedule
+  ports:
+  - protocol: TCP
+    port: 8080
+    nodePort: 8080
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: train-schedule-deployment
+  labels:
+    app: train-schedule
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: train-schedule
+  template:
+    metadata:
+      labels:
+        app: train-schedule
+    spec:
+      containers:
+      - name: train-schedule
+        image: guhyungm7/train-schedule:selfhealing
+        ports:
+        - containerPort: 8080
+        livenessProbe: # <-- MAKE SURE THIS IS INCLUDED
+          httpGet:
+            path: /
+            port: 8080
+          initialDelaySeconds: 15
+          timeoutSeconds: 1
+          periodSeconds: 1
+```
+
+#
