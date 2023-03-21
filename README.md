@@ -139,4 +139,3 @@ spec:
           periodSeconds: 1
 ```
 
-#
