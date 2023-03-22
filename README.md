@@ -150,11 +150,15 @@ spec:
 ### Canary Testing (Important)
 
 1. `Canary Testing` is very similar to Blue / Green Deployment
-2. `Canary Testing` is applied by
-    1. Deploying the normal pods with label `stable`
-    2. Deploying the canary pods with label `canary`
-    3. Setting service port for canary pods to be different from normal, stable pods
-    4. Replace images in normal pods if canary testing is successful, delete canary pods if unsucessful
+2. `Canary Testing` is used for debugging
+2. `Canary Testing` works by
+  1. Routing certain percentage of users to the newly applied solution contained inside canary pod
+  2. If all is well, then merge solution by deploying it to main pods
+3. `Canary Testing` is applied by
+  1. Deploying the normal pods with label `stable`
+  2. Deploying the canary pods with label `canary`
+  3. Setting service port for canary pods to be different from normal, stable pods
+  4. Replace images in normal pods if canary testing is successful, delete canary pods if unsucessful
 
 - NOTE: Website can be accessed by entering `<PUBLIC_IP` of worker nodes, not control plane
 
