@@ -36,5 +36,38 @@
 
 ### Add Kubernetes Credentials
 
+- Kubernetes Configuration plugin is deprecated.
+
 1. On web browser's Jenkins page, click`Add Credentials`
 2. Set the kind to `Kubernetes configuration (kubeconfig)`
+3. Set the ID to kubeconfig and the description to Kubeconfig
+4. Login into Kubernetes master
+5. Copy the result of the following command:
+
+```
+cat ~/.kube/config
+```
+
+6. Back in Jenkins browser, paste the content to Entry directly > Content section
+7. click `Okay`
+
+## Setting up the project
+
+1. On web browser's Jenkins page, go back to home page
+2. Click `new items`
+3. Give the item the name `train-schedule` (or any unique name suitable for this jenkins pipeline)
+4. Select `Multibranch pipeline` > `Click`
+5. Under `Branch Sources`, chance add source to `Github`
+6. Set up the section as follows
+    - `Credentials`: click dropdown and select `Github Key`
+     - `Repository HTTPS URL`: https://github.com/your_account_id/cicd-pipeline-train-schedule-canary.git
+        - ex: https://github.com/hyungmogu/cicd-pipeline-train-schedule-canary.git
+7. Click `Save`
+
+## Review the Builds
+
+1. Should an item called `Build Queue` appears above `Build Executor Status`, selectd cancel button
+
+2. Click on `Master build` and wait for it to process
+
+#
