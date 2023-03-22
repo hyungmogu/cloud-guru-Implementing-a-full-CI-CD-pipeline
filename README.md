@@ -4,15 +4,43 @@
 
 ## Key Take Aways
 
-### Setting up
+### 1) Setting up
 
 1. Jenkins must be installed on third party server (e.g. AWS, Azure, GCP, Digital Ocean). Localhost doesn't work!
+
+### 2) Setting up Jenkins Credentials
+
+1. Select `Manage Jenkins` > `Manage Credentials` from the menu
+2. From the single credential present, click on `global` > `Add Credentials`
+
+### Adding Github key
+
+1. Add person github username in `Username` section
+2. Go to GitHub browser page, select `Settings` > `Developer Settings` > `Personal access tokens`
+3. Select `Generate new tokens`, and make sure to
+    1. Set the `token description` to `Jenkins`
+    2. Select the checkbox for `admin:repo_hook`
+    3. Click `Okay`
+4. Copy secret
+5. Go back to Jenkins browser page and paste the secret to `Password` field
+
+### Adding Docker Hub key
+
+1. On web browser's Jenkins page, click `Add Credentials`
+2. Provide Docker Username and Password 
+3. Set the id to `docker_hub_login` and description to `docker_hub`
+4. Click `Okay`
+
+### Add Kubernetes Credentials
+
+1. On web browser's Jenkins page, click`Add Credentials`
+2. Set the kind to `Kubernetes configuration (kubeconfig)`
 
 ### Application / Infrastructure Monitoring
 
 1. `Application Monitoring` in kubernetes is done by harvesting data from Kubernetes Service [See lesson 8.4 for more]
 
-### Horizontal Pod Scaler
+### 3) Horizontal Pod Scaler
 
 1. Setting Up Horizontal Pod Autoscaler [see lesson 10.2 for more]
 
@@ -149,16 +177,20 @@ spec:
 
 ### Canary Testing (Important)
 
-1. `Canary Testing` is very similar to Blue / Green Deployment
-2. `Canary Testing` is used for debugging
-2. `Canary Testing` works by
+- `Canary Testing` is very similar to Blue / Green Deployment
+- `Canary Testing` is used for debugging
+- `Canary Testing` works by
   1. Routing certain percentage of users to the newly applied solution contained inside canary pod
   2. If all is well, then merge solution by deploying it to main pods
-3. `Canary Testing` is applied by
+- `Canary Testing` is applied by
   1. Deploying the normal pods with label `stable`
   2. Deploying the canary pods with label `canary`
   3. Setting service port for canary pods to be different from normal, stable pods
   4. Replace images in normal pods if canary testing is successful, delete canary pods if unsucessful
+- `Canary Testing` using jenkins requires three servers
+  1. Server for Jenkins
+  2. Server for Kubernetes master
+  3. Server for Kubernetes node
 
 - NOTE: Website can be accessed by entering `<PUBLIC_IP` of worker nodes, not control plane
 
@@ -269,3 +301,4 @@ spec:
             cpu: 200m
 ```
 
+#
