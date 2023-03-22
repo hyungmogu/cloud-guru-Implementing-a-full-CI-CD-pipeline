@@ -70,4 +70,3 @@ cat ~/.kube/config
 
 2. Click on `Master build` and wait for it to process
 
-#
