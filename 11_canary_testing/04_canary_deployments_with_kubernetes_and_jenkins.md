@@ -68,5 +68,129 @@ cat ~/.kube/config
 
 1. Should an item called `Build Queue` appears above `Build Executor Status`, selectd cancel button
 
-2. Click on `Master build` and wait for it to process
+2. Click on `Status` > `Master build` and wait for it to process
 
+3. Once the `master build` gets to DeployToProduction stage, hover over the DeployToProduction, and select proceed
+
+4. Click on our Kubernetes server, and enter the following to review deployment  
+
+```
+kubectl get pods -w
+```
+
+5. Review application by copying the kubernete nodes (not master's) public ip, and paste it to browser with port 8080
+
+## Add canary stage to the pipeline
+
+1. On githubs browser page, go to the fork that was just made
+
+2. Create file named `train-schedule-kube-canary.yml` in the project root directory
+
+3. copy paste in canary code from [here](https://raw.githubusercontent.com/linuxacademy/cicd-pipeline-train-schedule-canary/example-solution/train-schedule-kube-canary.yml)
+
+```
+kind: Service
+apiVersion: v1
+metadata:
+  name: train-schedule-service-canary
+spec:
+  type: NodePort
+  selector:
+    app: train-schedule
+    track: canary
+  ports:
+  - protocol: TCP
+    port: 8080
+    nodePort: 8081
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: train-schedule-deployment-canary
+  labels:
+    app: train-schedule
+spec:
+  replicas: $CANARY_REPLICAS
+  selector:
+    matchLabels:
+      app: train-schedule
+      track: canary
+  template:
+    metadata:
+      labels:
+        app: train-schedule
+        track: canary
+    spec:
+      containers:
+      - name: train-schedule
+        image: $DOCKER_IMAGE_NAME:$BUILD_NUMBER
+        ports:
+        - containerPort: 8080
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 8080
+          initialDelaySeconds: 15
+          timeoutSeconds: 1
+          periodSeconds: 10
+        resources:
+          requests:
+            cpu: 200m
+```
+
+4. In Jenkinsfile, add the following stage
+    1. after the `Push Docker Image` stage 
+    2. before the `DeployToProduction` stage
+
+**Jenkinsfile**
+```
+stage('CanaryDeploy') {
+  when {
+    branch 'master'
+  }
+  environment {
+    CANARY_REPLICAS = 1
+  }
+  steps {
+    kubernetesDeploy(
+      kubeconfigId: 'kubeconfig',
+      configs: 'train-schdeule-kube-canary.yml',
+      enableConfigSubstitution: true
+      )
+  }
+}
+```
+
+5. when the review is complete, and is ready to dismantle canary pods, replace `environment` with the following:
+
+**Jenkinsfile**
+```
+    ...
+    environment {
+        CANARY_REPLICAS = 0
+    }
+```
+
+6. Run commit changes
+
+## Run a Successful Deployment
+
+1. Go to kubernetes server and review pods
+
+**Kubernetes control plane**
+
+```
+kubectl get pods -w 
+```
+
+2. on jenkins browser page, click `build now` on `master branch` to apply updated information
+
+3. on kubernetes terminal, check canary section pods are appearing
+
+4. Check website by typing `<KUBERNETES_WORKER_PUBLIC_IP>:8081`
+
+5. Once the site is good to go, click `DeployToProduction` and click speead 
+
+#
