@@ -40,6 +40,7 @@
 7. Download `httpRquest` plugin
 - This will be used for smoke tests
 
+<img src="">
 
 ```
 
@@ -142,4 +143,3 @@ pipeline {
 }
 ```
 
-#
