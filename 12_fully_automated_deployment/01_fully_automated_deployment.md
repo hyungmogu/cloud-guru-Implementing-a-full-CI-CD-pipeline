@@ -15,3 +15,10 @@
 
 <img src="https://user-images.githubusercontent.com/6856382/226923545-c5ab6fbc-0445-44a7-88a3-bcb8df7a820d.png">
 
+3. Add environment variable `KUBE_MASTER` and it's ip address
+
+<img src="https://user-images.githubusercontent.com/6856382/227123499-a2ae64fc-54ea-435a-adad-dcab39104844.png">
+
+4. Scroll down to `Github` section and turn on Github Webhook trigger
+
+<img src="">
