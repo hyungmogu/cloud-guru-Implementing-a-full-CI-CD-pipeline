@@ -20,6 +20,8 @@
 <img src="https://user-images.githubusercontent.com/6856382/227123499-a2ae64fc-54ea-435a-adad-dcab39104844.png">
 
 4. Scroll down to `Github` section and turn on Github Webhook trigger
+5. Select `Github Server` after clicking `Add Github Server` dropdown
 
-<img src="">
+<img src="https://user-images.githubusercontent.com/6856382/227125381-96cf1e87-21d1-4011-997c-32d56a22b5e9.png">
 
+#
