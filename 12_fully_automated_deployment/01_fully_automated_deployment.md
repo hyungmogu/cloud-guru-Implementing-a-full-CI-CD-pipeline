@@ -24,6 +24,11 @@
 
 <img src="https://user-images.githubusercontent.com/6856382/227125381-96cf1e87-21d1-4011-997c-32d56a22b5e9.png">
 
+6. Add following information to the field:
+    - `Name`: Github
+    - `API URL`: http://api.github.com
+    - `Manage hooks`: selected
+
 6. Add another github credential as done previously
 - But this time, set it under the kind `secret text`
 
