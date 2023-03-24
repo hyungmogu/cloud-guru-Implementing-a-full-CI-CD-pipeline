@@ -37,13 +37,17 @@
 
 8. Click `save`
 
-7. Download `httpRquest` plugin
+7. Click `Manage Jenkins` > `Manage Plugin` and Download `httpRquest` plugin
+- This allows to make http requests inside pipeline
 - This will be used for smoke tests
 
-<img src="">
+<img src="https://user-images.githubusercontent.com/6856382/227395672-8800b9fc-1566-4717-bf7d-7c0670d6770a.png">
 
+8. In `Jenkinsfile`, make sure to replace `willbla` with your personal repository
+- `milestone(1)` forces all prior builds to go through in order before proceeding. 
+
+**Jenkinsfile**
 ```
-
 pipeline {
     agent any
     environment {
