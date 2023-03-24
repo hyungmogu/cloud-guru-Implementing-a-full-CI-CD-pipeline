@@ -43,7 +43,7 @@
 
 <img src="https://user-images.githubusercontent.com/6856382/227395672-8800b9fc-1566-4717-bf7d-7c0670d6770a.png">
 
-8. In `Jenkinsfile`, make sure to replace `willbla` with your personal repository
+8. In `Jenkinsfile`, make sure to replace `willbla` with your personal docker hub repository ID
 - `milestone(1)` forces all prior builds to go through in order before proceeding. 
 - `post build actions` allow steps to be invoked regardless of status of Jenkin pipeline.
 - `CANARY_REPLICAS = 0` deletes deployment from Kubernetes cluster
@@ -149,4 +149,21 @@ pipeline {
     }
 }
 ```
+
+9. On Jenkins browser home page, create `Multibranch Pipeline` with name `train-schedule`
+- Set `credential` to `github_key` created in earlier steps
+- Set `Owner` to `your github id`
+- Set `Repository` to `cicd-pipeline-train-schedule-autodeploy`
+
+<img src="https://user-images.githubusercontent.com/6856382/227399657-ef89c3fa-ec0b-44f0-bb0e-a9598893642b.png">
+
+10. Select `Okay` and run
+
+11. Validate the setup of Kubernetes deployment via running the following line of command
+
+**Kubernetes Cluster**
+```
+kubectl get pods -w
+```
+
 #
