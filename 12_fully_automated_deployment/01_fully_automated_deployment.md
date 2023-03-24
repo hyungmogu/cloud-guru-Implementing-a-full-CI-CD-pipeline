@@ -166,4 +166,3 @@ pipeline {
 kubectl get pods -w
 ```
 
-#
