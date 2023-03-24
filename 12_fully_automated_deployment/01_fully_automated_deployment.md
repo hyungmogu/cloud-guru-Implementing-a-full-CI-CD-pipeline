@@ -45,6 +45,7 @@
 
 8. In `Jenkinsfile`, make sure to replace `willbla` with your personal repository
 - `milestone(1)` forces all prior builds to go through in order before proceeding. 
+- `post build actions` allow steps to be invoked regardless of status of Jenkin pipeline.
 
 **Jenkinsfile**
 ```
@@ -147,3 +148,4 @@ pipeline {
 }
 ```
 
+#
